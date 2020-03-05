@@ -24,7 +24,7 @@
           <h3 class="font-weight-bold">Ton score:</h3>
           <p class="font-weight-bold" id="score"></p>
           <p class="text-center">Bravo! Vous remportez le badge "oeil de Lynx"</p>
-          <a href="quizz.php" class="btn btn-outline-white btn-md waves-effect" role="button"><i class="fas fa-clone left"></i>Retour aux quiz</a>
+          <a href="quizz_view.php" class="btn btn-outline-white btn-md waves-effect" role="button"><i class="fas fa-clone left"></i>Retour aux quiz</a>
         </div>
       </div>
     </section>

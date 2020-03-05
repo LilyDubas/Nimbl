@@ -11,7 +11,7 @@
 </head>
 <body>
   <!--Navbar -->
-<?php include '../Share/header_view.php' ?>../
+<?php include '../Share/header_view.php' ?>
 
 <h2 class="text-center font-weight-bold dark-grey-text">Bienvenue au labo!</h2>
 <p class="text-center m-5 dark-grey-text"></p>

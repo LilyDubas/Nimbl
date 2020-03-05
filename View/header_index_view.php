@@ -16,6 +16,9 @@
       <a class="nav-link" href="View/labo_view.php">Le labo</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="View/lessons_view.php">Les cours</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="View/quizz_view.php">Quiz</a>
     </li>
     <li class="nav-item">
