@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -28,17 +29,12 @@
   <div class="card-body card-body-cascade text-center">
 
     <!-- Title -->
-    <h4 class="card-title"><strong>Léo Fox</strong></h4>
+    <h4 class="card-title"><strong><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?? 'Léo Fox' ?></strong></h4>
     <!-- Subtitle -->
     <h5 class="blue-text pb-2"><strong>Astronaute en herbe</strong></h5>
     <!-- Text -->
-    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
-      laudantium, totam rem aperiam. </p>
+    <p class="card-text"></p>
 
-    <!-- Twitter -->
-    <a class="px-2 fa-lg tw-ic"><i class="fab fa-instagram"></i></a>
-    <!-- Dribbble -->
-    <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
 
   </div>
 

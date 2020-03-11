@@ -26,10 +26,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-in'])) {
     }
     else {
       // maintenant que l'email est validé on verifie le password
-      $regExPassword = '/^(?=.[\d])(?=.[A-Z])(?=.[a-z])(?=.[!@#$%^&])?[\w!@#$%^&]{8,}$/';
+      $regExPassword = '/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&])?[\w!@#$%^&]{8,}$/';
       $passwordOK = preg_match($regExPassword, $password);
       if ($passwordOK) {
         //check si l'utilisateur existe dans la bdd
+        require 'Model/user_connection.php';
+        $user_info = check_user($email, $password);
+        // vérifie que le mot de passe donné et le même que le mot de passe crypté dans la bdd
+        $password_checked = password_verify($password, $user_info['password']);
+        if ($password_checked == true){
+          // $validation_message = 'vous êtes bien connecté(e)';
+          // $display_validation_message = true;
+          $cookie_name = 'random_key';
+          $cookie_value = $user_info['random_key'];
+          // 86400 secondes dans une journée, fois 7 pour faire une semaine
+          $cookie_expiration_date = time() + (86400 * 7);
+          // Disponible sur toutes les pages du site
+          $cookie_path = '/';
+          // Créer le cookie d'identification de l'utilisateur
+          setcookie($cookie_name, $cookie_value, $cookie_expiration_date, $cookie_path);
+          $_SESSION['email'] = $user_info['email'];
+          $_SESSION['password'] = $user_info['password'];
+          $_SESSION['lastname'] = $user_info['lastname'];
+          $_SESSION['firstname'] = $user_info['firstname'];
+
+          // Attend une seconde et redirige vers le compte utilisateur
+          header('refresh:1;url=View/profil_view.php');
+        }
+        else {
+          $error_message = 'email ou mot de passe invalide';
+        }
       }
       else {
         $error_message = 'email ou mot de passe invalide';

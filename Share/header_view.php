@@ -115,11 +115,11 @@ aria-hidden="true">
           <!--Body-->
           <div class="row">
             <div class="md-form mb-1">
-              <input type="text" name="firstname" id="firstname" class="form-control validate" placeholder="Ton nom">
+              <input type="text" name="firstname" id="firstname" class="form-control validate" placeholder="Ton prénom">
               <label data-error="wrong" data-success="right" for="firstname" ></label>
             </div>
             <div class="md-form mb-1 ml-4">
-              <input type="text" name="lastname" id="lastname" class="form-control validate" placeholder="Ton prénom">
+              <input type="text" name="lastname" id="lastname" class="form-control validate" placeholder="Ton nom">
               <label data-error="wrong" data-success="right" for="lastname"></label>
             </div>
           </div>

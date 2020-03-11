@@ -84,13 +84,12 @@
         <div class="col-lg-7 col-xl-8">
           <h4 class="font-weight-bold mb-3"><strong>Quelle est la différence entre un phoque et une otarie?</strong></h4>
 
-          <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-            quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-            et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
+          <p>Le phoque et l'otarie sont tous deux des mammifères marins carnivores. Ils sont souvent confondus car la forme de leurs corps se ressemble, et un peu leur visages aux yeux ronds. </p>
+          <p>Ce sont pourtant deux espèces de mammifères différentes...</p>
             <!-- Post data -->
             <p>question posée par <a class="font-weight-bold">Pierre Monvoisin</a>, le 05/04/2020</p>
             <!-- Read more button -->
-            <a class="btn btn-primary btn-md mx-0 btn-rounded">Voir la question</a>
+            <a class="btn btn-primary btn-md mx-0 btn-rounded" href="sealions_view.php">Voir la question</a>
 
           </div>
         </div>
@@ -108,17 +107,22 @@
           <div class="col-lg-7 col-xl-8">
             <h4 class="font-weight-bold mb-3"><strong>Pourquoi y a-t-il des saisons?</strong></h4>
 
-            <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-              quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-              et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
+          <p>Il y a deux définitions légèrement différentes des saisons: une définition <span class="font-weight-bold">astronomique</span> et une définition <span class="font-weight-bold">météorologique</span>...</p>
               <!-- Post data -->
               <p>question posée par <a class="font-weight-bold">Séverine Picot</a>, le 05/02/2020</p>
               <!-- Read more button -->
-              <a class="btn btn-primary btn-md mx-0 btn-rounded">Voir la question</a>
+              <a class="btn btn-primary btn-md mx-0 btn-rounded" href="seasons_view.php">Voir la question</a>
 
             </div>
           </div>
           <hr class="my-5">
+          <details>
+            <summary class="p-4 font-weight-bold text-secondary text-center font-size-">Poser une question</summary>
+            <div class="form-group border-focus p-5">
+            <label for="question-form" class="font-weight-bold">Ta question: </label>
+            <textarea class="form-control" id="question-area" rows="3"></textarea>
+          </div>
+          </details>
         </section>
       </div>
 

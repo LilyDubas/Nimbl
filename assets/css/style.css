@@ -37,4 +37,23 @@ p:not(.love){
 #image-latest-news{
   width:100%;
 }
+b{
+  font-weight: bold;
+}
 /* page Dis-moi */
+/* page sealions */
+#sealions-text{
+  width: 100%;
+  text-align: justify;
+}
+/* page saisons */
+#world-climats{
+width: 100%;
+}
+#climats-list{
+  text-align: justify;
+}
+#question-el-nino{
+  width: 30%;
+  margin-left: 40%;
+}
