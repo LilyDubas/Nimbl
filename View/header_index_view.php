@@ -72,18 +72,11 @@ aria-hidden="true">
           <div class="text-center mb-3">
             <button type="submit" name="sign-in" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Connexion</button>
           </div>
-          <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou connectes-toi avec :</p>
 
-          <div class="row my-3 d-flex justify-content-center">
-            <!--Facebook-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
-            <!--Google +-->
-            <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google"></i></button>
-          </div>
         </div>
         <!--Footer-->
         <div class="modal-footer mx-5 pt-3 mb-1">
-          <p class="font-small grey-text d-flex justify-content-end">Pas encore inscrit? <a type="button" class="blue-text ml-1" data-toggle="modal" data-target="#elegantModalForm2">
+          <p class="grey-text d-flex justify-content-end">Pas encore inscrit? <a type="button" class="blue-text ml-1 font-weight-bold" data-toggle="modal" data-target="#elegantModalForm2">
             Inscription</a></p>
           </div>
         </div>
@@ -140,14 +133,6 @@ aria-hidden="true">
           </div>
           <div class="text-center mb-3">
             <button type="submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a" name="sign-up">Inscription</button>
-          </div>
-          <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> ou inscrit toi avec :</p>
-
-          <div class="row my-3 d-flex justify-content-center">
-            <!--Facebook-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
-            <!--Google +-->
-            <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google"></i></button>
           </div>
         </div>
         <!--Footer-->

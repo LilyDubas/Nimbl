@@ -5,8 +5,8 @@ function check_user($email, $password){
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {
     // declarer la requête sql avec des paramètres
-    $statement = $db->prepare('SELECT `email`, `password`, `lastname`, `firstname`, `random_key` FROM `user` WHERE `email` = :email');
-    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement = $db->prepare('SELECT `mail`, `password`, `lastname`, `firstname`, `random_key` FROM `user` WHERE `mail` = :mail');
+    $statement->bindParam(':mail', $email, PDO::PARAM_STR);
     $statementValidity = $statement->execute();
     if($statementValidity == true){
     $user_info = $statement->fetch(PDO::FETCH_ASSOC);
