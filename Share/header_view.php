@@ -82,7 +82,7 @@ aria-hidden="true">
         </div>
         <!--Footer-->
         <div class="modal-footer mx-5 pt-3 mb-1">
-          <p class="font-small grey-text d-flex justify-content-end">Pas encore inscrit? <a type="button" class="blue-text ml-1" data-toggle="modal" data-target="#elegantModalForm2">
+          <p class="font-small grey-text d-flex justify-content-end">Pas encore inscrit? <a type="button" class="blue-text ml-1" data-toggle="modal" data-dismiss="modal" data-target="#elegantModalForm2">
             Inscription</a></p>
           </div>
         </div>
