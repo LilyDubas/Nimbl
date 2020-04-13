@@ -170,7 +170,7 @@
               <!-- Grid column -->
               <div class="col-12">
                 <!-- Badge -->
-                <a href="#!"><span class="badge success-color"><i class="fas fa-atom p-2"></i></i>La science tout autour de toi!</span></a>
+                <a href="#!"><span class="badge success-color"><i class="fas fa-atom p-2"></i>La science tout autour de toi!</span></a>
               </div>
             </div>
           </div>

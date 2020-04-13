@@ -13,9 +13,8 @@ function add_new_user($email, $password, $lastname, $firstname,$random_key){
     $statement->bindParam(':firstname', $firstname, PDO::PARAM_STR);
     $statement->bindParam(':random_key', $random_key, PDO::PARAM_INT);
     $statementValidity = $statement->execute();
-  } catch (Exception $ex) {
+  } catch (PDOException $ex) {
     echo $ex->getMessage();
   }
   return $statementValidity;
-}
-?>
+} ?>
