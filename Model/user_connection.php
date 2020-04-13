@@ -15,8 +15,7 @@ function check_user($email, $password){
     else {
       return false;
     }
-  } catch (Exception $ex) {
+  } catch (PDOException $ex) {
     echo $ex->getMessage();
   }
-}
- ?>
+} ?>
