@@ -30,7 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-in'])) {
       $passwordOK = preg_match($regExPassword, $password);
       if ($passwordOK) {
         //check si l'utilisateur existe dans la bdd
-        require '../Model/user_connection.php';
+        if ($currentPage != 'index'){
+          require '../Model/user_connection.php';
+        }
+        else {
+          require 'Model/user_connection.php';
+        }
         $user_info = check_user($email, $password);
         // vérifie que le mot de passe donné et le même que le mot de passe crypté dans la bdd
         $password_checked = password_verify($password, $user_info['password']);
@@ -46,7 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-in'])) {
           // Créer le cookie d'identification de l'utilisateur
           setcookie($cookie_name, $cookie_value, $cookie_expiration_date, $cookie_path);
           // Attend une seconde et redirige vers le compte utilisateur
-          header('refresh:1;url=profil_view.php');
+          if ($currentPage != 'index'){
+            header('refresh:1;url=profil_view.php');
+          }
+          else {
+            header('refresh:1;url=View/profil_view.php');
+          }
         }
         else {
           $error_message = 'email ou mot de passe invalide';
@@ -102,9 +112,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-up'])){
           // création d'une clé random pour identifier l'user dans les cookies sans infos sensibles
           $random_key = random_int(pow(10,6), pow(10,9));
           // ajout du user à la bdd
-          require '../Model/new_user.php';
+          if ($currentPage != 'index'){
+            require '../Model/new_user.php';
+          }
+          else {
+            require 'Model/new_user.php';
+          }
           $statementValidity = add_new_user($email, $password, $lastname, $firstname, $random_key);
-
         }
         else {
           $error_message = 'nom ou prénom invalide';

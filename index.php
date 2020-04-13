@@ -13,7 +13,7 @@
 </head>
 <body>
   <!--Navbar -->
-  <?php include 'View/header_index_view.php' ?>
+  <?php include 'Share/header_view.php'; ?>
   <!-- Dis-moi Nimbl bloc -->
   <div class="container my-5 z-depth-1">
     <section class="dark-grey-text">
