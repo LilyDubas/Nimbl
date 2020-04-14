@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?? 'Léo Fox' ?></title>
+  <title><?= $_SESSION['firstname'] ?? 'Léo' ?> <?= $_SESSION['lastname'] ?? 'Fox' ?></title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <?php require '../Share/css_links.html' ?>
@@ -29,7 +29,7 @@
     <div class="card-body card-body-cascade text-center">
 
       <!-- Title -->
-      <h4 class="card-title"><strong><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?? 'Léo Fox' ?></strong></h4>
+      <h4 class="card-title"><strong><?= $_SESSION['firstname'] ?? 'Léo' ?> <?= $_SESSION['lastname'] ?? 'Fox' ?></strong></h4>
       <!-- Subtitle -->
       <h5 class="blue-text pb-2"><strong>Astronaute en herbe</strong></h5>
       <!-- Text -->

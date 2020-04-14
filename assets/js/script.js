@@ -1,3 +1,2 @@
 // Material Select
-$('.mdb-select').materialSelect({
-});
+$('.mdb-select').materialSelect({});

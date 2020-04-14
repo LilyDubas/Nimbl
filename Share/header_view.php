@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 $currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
 $prefix = '';
 if ($currentPage != 'index'){
