@@ -22,7 +22,7 @@
         <div class="col-xl-8 col-md-10">
           <i class="fas fa-gem fa-2x mb-4"></i>
           <h3 class="font-weight-bold">Ton score:</h3>
-          <p class="font-weight-bold" id="score"></p>
+          <p class="font-weight-bold text-center" id="finalScore"><?= $_GET['score'] ?? '00' ?></p>
           <p class="text-center">Bravo! Vous remportez le badge "oeil de Lynx"</p>
           <a href="quizz_view.php" class="btn btn-outline-white btn-md waves-effect" role="button"><i class="fas fa-clone left"></i>Retour aux quiz</a>
         </div>

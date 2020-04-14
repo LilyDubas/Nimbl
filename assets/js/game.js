@@ -11,6 +11,7 @@ var scoreNum = 0;
 var questionCounter = 0;
 var availableQuestions = [];
 
+var questionTheme = "Vision";
 var questions = [
   {
     question: "Quel mot désigne une personne qui voit dans le noir?",
@@ -47,7 +48,7 @@ function startGame() {
 function getNewQuestion() {
   if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS){  // if there's no more available questions
     //go to the end page
-    return window.location.assign('../View/endgame_view.php');
+    return window.location.assign('../View/endgame_view.php?score=' + scoreNum + '&theme=' + questionTheme);
   }
   questionCounter++; //increment questionCounter
   scoreText.innerText = scoreNum;
