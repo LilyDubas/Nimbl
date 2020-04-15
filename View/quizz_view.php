@@ -23,7 +23,7 @@
         <div class="col-md-6 mb-4 mb-md-0">
           <h3 class="font-weight-bold">L'oeil et la vision</h3>
           <p class="text-muted">Composition de l'oeil humain, sa perception de la lumière et des couleurs ...</p>
-          <a class="btn btn-purple btn-md ml-0" href="quiz-vision_view.php" role="button">Jouer<i class="fa fa-play ml-2"></i></a>
+          <a class="btn btn-purple btn-md ml-0" href="quiz-vision_view.php?theme=vision" role="button">Jouer<i class="fa fa-play ml-2"></i></a>
         </div>
         <!--Grid column-->
         <!--Grid column-->
