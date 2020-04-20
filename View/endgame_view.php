@@ -7,13 +7,13 @@
   <title>Score</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-<?php require '../Share/css_links.html' ?>
+  <?php require '../Share/css_links.html' ?>
   <link rel="stylesheet" href="../assets/css/quiz.css">
 </head>
 <body>
-<?php include '../Share/header_view.php' ?>
+  <?php include '../Share/header_view.php' ?>
 
-  <div class="container my-5 py-5"id="end">
+  <div class="container my-5 py-5" id="end">
     <!--Section: Content-->
     <section class="px-md-5 mx-md-5 text-center white-text grey p-5 z-depth-1 bg aqua-gradient">
       <!--Grid row-->
@@ -22,8 +22,8 @@
         <div class="col-xl-8 col-md-10">
           <i class="fas fa-gem fa-2x mb-4"></i>
           <h3 class="font-weight-bold">Ton score:</h3>
-          <p class="font-weight-bold" id="score"></p>
-          <p class="text-center">Bravo! Vous remportez le badge "oeil de Lynx"</p>
+          <p class="font-weight-bold text-center" id="finalScore"></p>
+          <p class="text-center">Bravo! Vous remportez le badge "<span id="badgeName"></span>"</p>
           <a href="quizz_view.php" class="btn btn-outline-white btn-md waves-effect" role="button"><i class="fas fa-clone left"></i>Retour aux quiz</a>
         </div>
       </div>

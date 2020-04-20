@@ -15,27 +15,27 @@
   <div class="container my-5 py-5 z-depth-1">
 
 
-  <!--Section: Content-->
-  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
 
-    <!--Grid row-->
-    <div class="row d-flex justify-content-center">
-
-      <!--Grid column-->
-      <div class="col-lg-8 text-center">
-
-        <h3 class="font-weight-bold mb-4">Pourquoi y a-t-il des saison?</h3>
-
-        <!--Image-->
-        <div class="view overlay z-depth-1-half">
-          <img src="../assets/img/seasons-page.jpg" class="img-fluid"
-            alt="">
-          <a href="">
-            <div class="mask rgba-white-light"></div>
-          </a>
-        </div>
-      </div>
       <!--Grid row-->
+      <div class="row d-flex justify-content-center">
+
+        <!--Grid column-->
+        <div class="col-lg-8 text-center">
+
+          <h3 class="font-weight-bold mb-4">Pourquoi y a-t-il des saison?</h3>
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="../assets/img/seasons-page.jpg" class="img-fluid"
+            alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+        </div>
+        <!--Grid row-->
         <div class="p-4" id="seasons-text">
           <p class="text-info font-weight-bold pt-3">Qu’est-ce qu’une saison? </p>
           <p>Il y a deux définitions légèrement différentes des saisons: une définition <span class="font-weight-bold">astronomique</span> et une définition <span class="font-weight-bold">météorologique</span>.</p>
@@ -65,11 +65,11 @@
         </div>
       </div>
       <!--Grid column-->
-  </section>
-  <!--Section: Content-->
+    </section>
+    <!--Section: Content-->
 
 
-</div>
+  </div>
 
   <?php require '../Share/js_links.html' ?>
 </body>

@@ -30,7 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-in'])) {
       $passwordOK = preg_match($regExPassword, $password);
       if ($passwordOK) {
         //check si l'utilisateur existe dans la bdd
-        require '../Model/user_connection.php';
+        if ($currentPage != 'index'){
+          require '../Model/user_connection.php';
+        }
+        else {
+          require 'Model/user_connection.php';
+        }
         $user_info = check_user($email, $password);
         // vérifie que le mot de passe donné et le même que le mot de passe crypté dans la bdd
         $password_checked = password_verify($password, $user_info['password']);
@@ -46,7 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-in'])) {
           // Créer le cookie d'identification de l'utilisateur
           setcookie($cookie_name, $cookie_value, $cookie_expiration_date, $cookie_path);
           // Attend une seconde et redirige vers le compte utilisateur
-          header('refresh:1;url=profil_view.php');
+          if ($currentPage != 'index'){
+            header('refresh:1;url=profil_view.php');
+          }
+          else {
+            header('refresh:1;url=View/profil_view.php');
+          }
         }
         else {
           $error_message = 'email ou mot de passe invalide';
@@ -74,46 +84,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sign-up'])){
   !empty(trim($_POST['firstname'])) ? $firstname = $_POST['firstname'] : $error_message = 'Un des champs est incomplet, veuillez vérifier les informations saisies';
   !empty(trim($_POST['confirm_password'])) ? $confirm_password = $_POST['confirm_password'] : $error_message = 'Un des champs est incomplet, veuillez vérifier les informations saisies';
 
-if($email === 'ERROR' || $password === 'ERROR' || $lastname === 'ERROR' || $firstname === 'ERROR' || $confirm_password === 'ERROR'){
-  // display error message
-}
-else {
-  // nettoyer les champs
-  $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-  $password = filter_var($password, FILTER_SANITIZE_STRING);
-  $confirm_password = filter_var($confirm_password, FILTER_SANITIZE_STRING);
-  $lastname = filter_var($lastname, FILTER_SANITIZE_STRING);
-  $firstname = filter_var($firstname, FILTER_SANITIZE_STRING);
-  // valider les champs
-  $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-  // verifier le type de mail (string si validé sinon booléen)
-  if (gettype($email) === 'boolean') {
-    $error_message = 'email invalide';
+  if($email === 'ERROR' || $password === 'ERROR' || $lastname === 'ERROR' || $firstname === 'ERROR' || $confirm_password === 'ERROR'){
+    // display error message
   }
   else {
-    // maintenant que l'email est validé on verifie le password
-    $regExPassword = '/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&])?[\w!@#$%^&]{8,}$/';
-    $passwordOK = preg_match($regExPassword, $password);
-    if ($passwordOK && $password === $confirm_password) {
-      $regExName = '/^[a-zA-Z \x{00C0}-\x{00FF}"\'-]{1,25}$/u';
-      $lastnameOK = preg_match($regExName, $lastname);
-      $firstnameOK = preg_match($regExName, $firstname);
-      if ($lastnameOK && $firstnameOK){
-        // création d'une clé random pour identifier l'user dans les cookies sans infos sensibles
-        $random_key = random_int(pow(10,6), pow(10,9));
-        // ajout du user à la bdd
-        require '../Model/new_user.php';
-      $statementValidity = add_new_user($email, $password, $lastname, $firstname, $random_key);
-
-      }
-      else {
-        $error_message = 'nom ou prénom invalide';
-      }
+    // nettoyer les champs
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $password = filter_var($password, FILTER_SANITIZE_STRING);
+    $confirm_password = filter_var($confirm_password, FILTER_SANITIZE_STRING);
+    $lastname = filter_var($lastname, FILTER_SANITIZE_STRING);
+    $firstname = filter_var($firstname, FILTER_SANITIZE_STRING);
+    // valider les champs
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    // verifier le type de mail (string si validé sinon booléen)
+    if (gettype($email) === 'boolean') {
+      $error_message = 'email invalide';
     }
     else {
-      $error_message = 'le mot de passe est incorrect ou différent de la confirmation';
+      // maintenant que l'email est validé on verifie le password
+      $regExPassword = '/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&])?[\w!@#$%^&]{8,}$/';
+      $passwordOK = preg_match($regExPassword, $password);
+      if ($passwordOK && $password === $confirm_password) {
+        $regExName = '/^[a-zA-Z \x{00C0}-\x{00FF}"\'-]{1,25}$/u';
+        $lastnameOK = preg_match($regExName, $lastname);
+        $firstnameOK = preg_match($regExName, $firstname);
+        if ($lastnameOK && $firstnameOK){
+          // création d'une clé random pour identifier l'user dans les cookies sans infos sensibles
+          $random_key = random_int(pow(10,6), pow(10,9));
+          // ajout du user à la bdd
+          if ($currentPage != 'index'){
+            require '../Model/new_user.php';
+          }
+          else {
+            require 'Model/new_user.php';
+          }
+          $statementValidity = add_new_user($email, $password, $lastname, $firstname, $random_key);
+        }
+        else {
+          $error_message = 'nom ou prénom invalide';
+        }
+      }
+      else {
+        $error_message = 'le mot de passe est incorrect ou différent de la confirmation';
+      }
     }
   }
-}
-}
-?>
+} ?>
