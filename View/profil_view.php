@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require '../Controller/profil_view_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -29,9 +29,9 @@
     <div class="card-body card-body-cascade text-center">
 
       <!-- Title -->
-      <h4 class="card-title"><strong><?= $_SESSION['firstname'] ?? 'Léo' ?> <?= $_SESSION['lastname'] ?? 'Fox' ?></strong></h4>
+      <h4 class="card-title"><strong><?= ucfirst($_SESSION['firstname']) ?? 'Léo' ?> <?= ucfirst($_SESSION['lastname']) ?? 'Fox' ?></strong></h4>
       <!-- Subtitle -->
-      <h5 class="blue-text pb-2"><strong>Astronaute en herbe</strong></h5>
+      <h5 class="blue-text pb-2"><strong><?= ucfirst($_SESSION['level_name']) ?? 'Astronaute en herbe' ?></strong></h5>
       <!-- Text -->
       <p class="card-text"></p>
 

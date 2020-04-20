@@ -1,6 +1,6 @@
 <?php
-define('USER', 'LilyD');
-define('PASSWD', 'Iw4nt2break3');
+define('USER', 'pierremonvoisin');
+define('PASSWD', 'f0O91n5QftTYTCj');
 define('HOST', 'localhost');
 define('DB', 'Nimbl');
 
@@ -9,6 +9,6 @@ function connectDb() {
   try {
     return new PDO($dsn, USER, PASSWD);
   } catch (PDOException $ex) {
-    die('La connexion à la bd a échoué !');
+    die('La connexion à la bd a échoué !'.$e->getCode());
   }
 } ?>

@@ -1,6 +1,9 @@
 <?php
+// $_SERVER["SCRIPT_FILENAME"] = get the current absolute path of the file
+// basename( - , '.php') = get the filename without the '.php' at the end
 $currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
 $prefix = '';
+// check if the current page is the index to change the links accordingly
 if ($currentPage != 'index'){
   require '../Share/header_controller.php';
 }
