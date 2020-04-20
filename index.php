@@ -1,3 +1,4 @@
+<?php require 'Controller/delete_user_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
