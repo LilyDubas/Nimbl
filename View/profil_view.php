@@ -82,17 +82,18 @@
   <div class="card card-cascade wider my-4 w-50 mx-auto">
     <div class="card-body card-body-cascade text-center">
       <div class="btn-group btn-group-lg w-100" role="group">
-        <button id="delete-user" type="button" class="btn btn-block btn-secondary">Supprimer votre compte</button>
-        <button type="button" class="btn btn-block btn-secondary">// Update //</button>
+        <button id="delete-user" type="button" class="btn btn-block btn-info">Supprimer votre compte</button>
+        <button id="update-button" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#update-modal">Changer vos informations</button>
       </div>
     </div>
   </div>
   <!-- /// Temporary button to delete and update user /// -->
 
-  <?php require '../Share/js_links.html' ?>
-  <script src="../assets/js/profil_view.js"></script>
+<?php include 'update_info_modal.php';
+// Footer
+include '../Share/footer.php';
+require '../Share/js_links.html'; ?>
+<script src="../assets/js/profil_view.js"></script>
 </body>
-<!-- Footer -->
-<?php include '../Share/footer.php' ?>
 
 </html>
