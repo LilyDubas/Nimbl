@@ -1,9 +1,9 @@
 <?php
 function add_new_user($email, $password, $lastname, $firstname,$random_key){
-  require 'params.php';
+  require_once 'params.php';
   $db = connectDb();
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $password = password_hash($password, PASSWORD_DEFAULT);
+  $password = password_hash($password, PASSWORD_BCRYPT);
   try {
     // declarer la requête sql avec des paramètres
     $statement = $db->prepare('INSERT INTO `user`(`mail`, `password`, `lastname`, `firstname`, `random_key`) VALUES (:mail, :password, :lastname, :firstname, :random_key)');

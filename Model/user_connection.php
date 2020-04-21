@@ -1,6 +1,6 @@
 <?php
 function check_user($email, $password){
-  require 'params.php';
+  require_once 'params.php';
   $db = connectDb();
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {

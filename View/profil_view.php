@@ -89,11 +89,11 @@
   </div>
   <!-- /// Temporary button to delete and update user /// -->
 
-<?php include 'update_info_modal.php';
-// Footer
-include '../Share/footer.php';
-require '../Share/js_links.html'; ?>
-<script src="../assets/js/profil_view.js"></script>
+  <?php include 'update_info_modal.php';
+  // Footer
+  include '../Share/footer.php';
+  require '../Share/js_links.html'; ?>
+  <script src="../assets/js/profil_view.js"></script>
 </body>
 
 </html>

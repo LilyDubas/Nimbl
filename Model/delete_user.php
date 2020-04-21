@@ -1,6 +1,6 @@
 <?php
 function delete_user($userID){
-  require 'params.php';
+  require_once 'params.php';
   $db = connectDb();
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {
