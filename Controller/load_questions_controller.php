@@ -7,5 +7,4 @@ if (isset($_GET['theme']) && ! empty($_GET['theme'])){
     require '../Model/load_questions.php';
     $questions = load_questions($quizTheme);
   }
-}
-?>
+} ?>

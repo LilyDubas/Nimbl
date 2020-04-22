@@ -17,8 +17,8 @@
   <div class="container my-5">
     <!-- Section: Block Content -->
     <section class="dark-grey-text text-center">
-      <h3 class="text-center font-weight-bold mb-4 pb-2">La vision</h3>
-      <p class="text-center text-muted w-responsive mx-auto mb-5">Teste tes connaissances sur l'oeil et la vision, et remporte le badge "oeil de Lynx!"</p>
+      <h3 id="mainTitle" class="text-center font-weight-bold mb-4 pb-2"></h3>
+      <p id="description" class="text-center text-muted w-responsive mx-auto mb-5"></p>
       <!-- Grid row -->
       <div class="row">
         <!-- Grid column -->
@@ -28,8 +28,8 @@
             <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 px-md-5 rounded">
               <div>
                 <h3 class="purple-text" id="quiz-title">
-                  <i class="fas fa-eye"></i>
-                  <strong>L'oeil et la vision</strong>
+                  <i class="" id="titleLogo"></i>
+                  <strong id="secondaryTitle"></strong>
                 </h3>
                 <div id="hud">
                   <div class="hud-item">
@@ -76,6 +76,7 @@
   ?>
   </script>
   <!-- // Put all additionnal scripts under this // -->
+  <script src="../assets/js/quizText.js"></script>
   <script src="../assets/js/game.js"></script>
   <?php include '../Share/footer.php' ?>
 </body>
