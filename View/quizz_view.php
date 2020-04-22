@@ -1,5 +1,3 @@
-<?php session_start();
-include '../Controller/load_questions_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -25,7 +23,7 @@ include '../Controller/load_questions_controller.php'; ?>
         <div class="col-md-6 mb-4 mb-md-0">
           <h3 class="font-weight-bold">L'oeil et la vision</h3>
           <p class="text-muted">Composition de l'oeil humain, sa perception de la lumière et des couleurs ...</p>
-          <a class="btn btn-purple btn-md ml-0" href="quiz-vision_view.php?theme=vision" role="button">Jouer<i class="fa fa-play ml-2"></i></a>
+          <a class="btn btn-purple btn-md ml-0" href="quiz_game_view.php?theme=vision" role="button">Jouer<i class="fa fa-play ml-2"></i></a>
         </div>
         <!--Grid column-->
         <!--Grid column-->
@@ -47,14 +45,5 @@ include '../Controller/load_questions_controller.php'; ?>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <?php include '../Share/footer.php' ?>
-  <script type="text/javascript">
-  <?php
-  $questions = $_SESSION['questions'] ?? '';
-  $js_array = json_encode($questions);
-  echo 'var questions = ' .$js_array. ';';
-  ?>
-  </script>
-  <!-- // Put all additionnal scripts under this // -->
-  <script src="../assets/js/load_questions.js"></script>
 </body>
 </html>
