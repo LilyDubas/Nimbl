@@ -1,3 +1,5 @@
+<?php session_start();
+require '../Controller/load_all_users_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -8,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <?php require '../Share/css_links.html' ?>
+  <link rel="stylesheet" href="../assets/css/admin_view.css">
 </head>
 <body>
   <!--Navbar -->
@@ -26,43 +29,62 @@
     <div class="card-body">
       <div id="table" class="table-editable">
         <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-        <table class="table table-bordered table-responsive-md table-striped text-center">
-          <thead>
-            <tr>
-              <th class="text-center">Prénom</th>
-              <th class="text-center">Nom</th>
-              <th class="text-center">Adresse mail</th>
-              <th class="text-center">Niveau</th>
-              <th class="text-center">Nombre de badges</th>
-              <th class="text-center">Modifier</th>
-              <th class="text-center">Supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="pt-3-half" contenteditable="true">Kali</td>
-              <td class="pt-3-half" contenteditable="true">Meow</td>
-              <td class="pt-3-half" contenteditable="true">kali.meow@mail.com</td>
-              <td class="pt-3-half" contenteditable="true">4</td>
-              <td class="pt-3-half" contenteditable="true">8</td>
-              <td>
-                <span class="table-remove"><button type="button" class="btn btn-info btn-rounded btn-sm my-0">Modifier</button></span>
-              </td>
-              <td>
-                <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Supprimer</button></span>
-              </td>
-            </tr>
-            <!-- This is our clonable table line -->
-          </tbody>
-        </table>
+        <form action="#" method="get">
+          <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+              <tr>
+                <th class="text-center">Prénom</th>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Adresse mail</th>
+                <th class="text-center">Niveau</th>
+                <th class="text-center">Nombre de badges</th>
+                <th class="text-center">Modifier</th>
+                <th class="text-center">Supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if ($usersAvailable == true){
+                foreach ($userList AS $user){ ?>
+                  <tr id="mainUserInfo_<?= $user['id'] ?? '0' ?>">
+                    <td class="pt-3-half"><?= $user['firstname'] ?? 'Kali' ?></td>
+                    <td class="pt-3-half"><?= $user['lastname'] ?? 'Meow' ?></td>
+                    <td class="pt-3-half"><?= $user['mail'] ?? 'kali.meow@mail.com' ?></td>
+                    <td class="pt-3-half"><?= $user['level_name'] ?? '4' ?></td>
+                    <!-- Need to have better badge system before displaying the number of badges -->
+                    <td class="pt-3-half">8</td>
+                    <td>
+                      <span class="table-remove"><button id="update_<?= $user['id'] ?? '0' ?>" type="button" class="updateUser btn btn-info btn-rounded btn-sm my-0">Modifier</button></span>
+                    </td>
+                    <td>
+                      <span class="table-remove"><button id="delete_<?= $user['id'] ?? '0' ?>" type="button" class="deleteUser btn btn-danger btn-rounded btn-sm my-0">Supprimer</button></span>
+                    </td>
+                  </tr>
+                  <!-- Hidden row with the same info as a form -->
+                  <tr class="userforms" id="formUserInfo_<?= $user['id'] ?? '0' ?>">
+                    <td class="pt-3-half"><input type="text" name="firstname" value="<?= $user['firstname'] ?? 'Kali' ?>"></td>
+                    <td class="pt-3-half"><input type="text" name="lastname" value="<?= $user['lastname'] ?? 'Meow' ?>"></td>
+                    <td class="pt-3-half"><input type="text" name="mail" value="<?= $user['mail'] ?? 'kali.meow@mail.com' ?>"></td>
+                    <td class="pt-3-half"><input type="text" name="level" value="<?= $user['level_name'] ?? '4' ?>"></td>
+                    <!-- Need to have better badge system before displaying the number of badges -->
+                    <td class="pt-3-half"><input type="text" name="badges" value="8"></td>
+                    <td colspan="2">
+                      <span class="table-remove"><button name="confirmUpdate" type="submit" class="deleteUser btn btn-success btn-rounded btn-block btn-sm my-0">Valider</button></span>
+                    </td>
+                  </tr>
+                <?php } ?>
+              <?php } ?>
+              <!-- This is our clonable table line -->
+            </tbody>
+          </table>
+        </form>
       </div>
     </div>
   </div>
+  <!-- Footer -->
+  <?php include '../Share/footer.php' ?>
   <!-- Editable table -->
 
   <?php require '../Share/js_links.html' ?>
-
+  <script src="../assets/js/update_user_admin.js"></script>
 </body>
-<!-- Footer -->
-<?php include '../Share/footer.php' ?>
 </html>
