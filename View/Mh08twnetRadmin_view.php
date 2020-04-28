@@ -1,12 +1,13 @@
-<?php session_start();
-require '../Controller/load_all_users_controller.php'; ?>
+<?php require '../Controller/info_session_controller.php';
+require '../Controller/load_all_users_controller.php';
+require '../Controller/update_any_user_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Dis-moi</title>
+  <title>Admin Panel</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <?php require '../Share/css_links.html' ?>
@@ -29,12 +30,13 @@ require '../Controller/load_all_users_controller.php'; ?>
     <div class="card-body">
       <div id="table" class="table-editable">
         <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-        <form action="#" method="get">
+        <form action="#" method="post">
           <table class="table table-bordered table-responsive-md table-striped text-center">
             <thead>
               <tr>
                 <th class="text-center">Prénom</th>
                 <th class="text-center">Nom</th>
+                <th class="text-center">Surnom</th>
                 <th class="text-center">Adresse mail</th>
                 <th class="text-center">Niveau</th>
                 <th class="text-center">Nombre de badges</th>
@@ -48,6 +50,7 @@ require '../Controller/load_all_users_controller.php'; ?>
                   <tr id="mainUserInfo_<?= $user['id'] ?? '0' ?>">
                     <td class="pt-3-half"><?= $user['firstname'] ?? 'Kali' ?></td>
                     <td class="pt-3-half"><?= $user['lastname'] ?? 'Meow' ?></td>
+                    <td class="pt-3-half"><?= $user['user_name'] ?? 'Dex-Starr' ?></td>
                     <td class="pt-3-half"><?= $user['mail'] ?? 'kali.meow@mail.com' ?></td>
                     <td class="pt-3-half"><?= $user['level_name'] ?? '4' ?></td>
                     <!-- Need to have better badge system before displaying the number of badges -->
@@ -63,10 +66,12 @@ require '../Controller/load_all_users_controller.php'; ?>
                   <tr class="userforms" id="formUserInfo_<?= $user['id'] ?? '0' ?>">
                     <td class="pt-3-half"><input type="text" name="firstname" value="<?= $user['firstname'] ?? 'Kali' ?>"></td>
                     <td class="pt-3-half"><input type="text" name="lastname" value="<?= $user['lastname'] ?? 'Meow' ?>"></td>
+                    <td class="pt-3-half"><input type="text" name="username" value="<?= $user['user_name'] ?? 'Dex-Starr' ?>"></td>
                     <td class="pt-3-half"><input type="text" name="mail" value="<?= $user['mail'] ?? 'kali.meow@mail.com' ?>"></td>
                     <td class="pt-3-half"><input type="text" name="level" value="<?= $user['level_name'] ?? '4' ?>"></td>
                     <!-- Need to have better badge system before displaying the number of badges -->
-                    <td class="pt-3-half"><input type="text" name="badges" value="8"></td>
+                    <td class="pt-3-half"><input type="text" value="8" readonly></td>
+                    <td class="d-none"><input type="hidden" name="userID" value="<?= $user['id'] ?? '0' ?>"></td>
                     <td colspan="2">
                       <span class="table-remove"><button name="confirmUpdate" type="submit" class="deleteUser btn btn-success btn-rounded btn-block btn-sm my-0">Valider</button></span>
                     </td>

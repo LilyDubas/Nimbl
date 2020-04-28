@@ -1,4 +1,4 @@
-<?php require '../Controller/profil_view_controller.php'; ?>
+<?php require '../Controller/info_session_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
