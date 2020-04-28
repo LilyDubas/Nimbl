@@ -1,4 +1,5 @@
 const updateButtons = document.getElementsByClassName('updateUser');
+const deleteButtons = document.getElementsByClassName('deleteUser');
 
 updateButtons.forEach(function(button){
   button.addEventListener('click', function(){
@@ -9,5 +10,13 @@ updateButtons.forEach(function(button){
       mainTr.style.display = 'none';
       formTr.style.display = 'table-row';
     }
+  });
+})
+const userIDInput = document.getElementById('userIDInput');
+
+deleteButtons.forEach(function(button){
+  button.addEventListener('click', function(){
+    var userID = (this.id).replace('delete_', '');
+    userIDInput.value = userID;
   });
 })

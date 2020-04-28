@@ -1,6 +1,7 @@
 <?php require '../Controller/info_session_controller.php';
 require '../Controller/load_all_users_controller.php';
-require '../Controller/update_any_user_controller.php'; ?>
+require '../Controller/update_any_user_controller.php';
+require '../Controller/delete_any_user_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -50,7 +51,7 @@ require '../Controller/update_any_user_controller.php'; ?>
                   <tr id="mainUserInfo_<?= $user['id'] ?? '0' ?>">
                     <td class="pt-3-half"><?= $user['firstname'] ?? 'Kali' ?></td>
                     <td class="pt-3-half"><?= $user['lastname'] ?? 'Meow' ?></td>
-                    <td class="pt-3-half"><?= $user['user_name'] ?? 'Dex-Starr' ?></td>
+                    <td class="pt-3-half"><?= $user['user_name'] ?? '' ?></td>
                     <td class="pt-3-half"><?= $user['mail'] ?? 'kali.meow@mail.com' ?></td>
                     <td class="pt-3-half"><?= $user['level_name'] ?? '4' ?></td>
                     <!-- Need to have better badge system before displaying the number of badges -->
@@ -59,14 +60,14 @@ require '../Controller/update_any_user_controller.php'; ?>
                       <span class="table-remove"><button id="update_<?= $user['id'] ?? '0' ?>" type="button" class="updateUser btn btn-info btn-rounded btn-sm my-0">Modifier</button></span>
                     </td>
                     <td>
-                      <span class="table-remove"><button id="delete_<?= $user['id'] ?? '0' ?>" type="button" class="deleteUser btn btn-danger btn-rounded btn-sm my-0">Supprimer</button></span>
+                      <span class="table-remove"><button id="delete_<?= $user['id'] ?? '0' ?>" type="button" data-toggle="modal" data-target="#confirmDeleteModal" class="deleteUser btn btn-danger btn-rounded btn-sm my-0">Supprimer</button></span>
                     </td>
                   </tr>
                   <!-- Hidden row with the same info as a form -->
                   <tr class="userforms" id="formUserInfo_<?= $user['id'] ?? '0' ?>">
                     <td class="pt-3-half"><input type="text" name="firstname" value="<?= $user['firstname'] ?? 'Kali' ?>"></td>
                     <td class="pt-3-half"><input type="text" name="lastname" value="<?= $user['lastname'] ?? 'Meow' ?>"></td>
-                    <td class="pt-3-half"><input type="text" name="username" value="<?= $user['user_name'] ?? 'Dex-Starr' ?>"></td>
+                    <td class="pt-3-half"><input type="text" name="username" value="<?= $user['user_name'] ?? '' ?>"></td>
                     <td class="pt-3-half"><input type="text" name="mail" value="<?= $user['mail'] ?? 'kali.meow@mail.com' ?>"></td>
                     <td class="pt-3-half"><input type="text" name="level" value="<?= $user['level_name'] ?? '4' ?>"></td>
                     <!-- Need to have better badge system before displaying the number of badges -->
@@ -85,11 +86,12 @@ require '../Controller/update_any_user_controller.php'; ?>
       </div>
     </div>
   </div>
+  <?php require '../View/confirm_delete_user_modal.php'; ?>
   <!-- Footer -->
-  <?php include '../Share/footer.php' ?>
+  <?php include '../Share/footer.php'; ?>
   <!-- Editable table -->
 
-  <?php require '../Share/js_links.html' ?>
-  <script src="../assets/js/update_user_admin.js"></script>
+  <?php require '../Share/js_links.html'; ?>
+  <script src="../assets/js/admin.js"></script>
 </body>
 </html>
