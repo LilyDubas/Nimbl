@@ -69,7 +69,6 @@ require '../Controller/add_new_user_controller.php'; ?>
         <?php } else { ?>
           <span class="table-add float-right mb-3 mr-2"><a href="?newUser=" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
         <?php } ?>
-        <form action="#" method="post">
           <table class="table table-bordered table-responsive-md table-striped text-center">
             <thead>
               <tr>
@@ -103,6 +102,7 @@ require '../Controller/add_new_user_controller.php'; ?>
                   </tr>
                   <!-- Hidden row with the same info as a form -->
                   <tr class="userforms" id="formUserInfo_<?= $user['id'] ?? '0' ?>">
+                    <form action="#" method="post">
                     <td class="pt-3-half"><label for="firstname" class="sr-only">Prénom</label><input type="text" name="firstname" value="<?= $user['firstname'] ?? 'Kali' ?>"></td>
                     <td class="pt-3-half"><label for="lastname" class="sr-only">Nom</label><input type="text" name="lastname" value="<?= $user['lastname'] ?? 'Meow' ?>"></td>
                     <td class="pt-3-half"><label for="username" class="sr-only">Nom d'utilisateur</label><input type="text" name="username" value="<?= $user['user_name'] ?? '' ?>"></td>
@@ -114,13 +114,13 @@ require '../Controller/add_new_user_controller.php'; ?>
                     <td colspan="2">
                       <span class="table-remove"><button name="confirmUpdate" type="submit" class="deleteUser btn btn-success btn-rounded btn-block btn-sm my-0">Valider</button></span>
                     </td>
+                  </form>
                   </tr>
                 <?php } ?>
               <?php } ?>
               <!-- This is our clonable table line -->
             </tbody>
           </table>
-        </form>
       </div>
     </div>
   </div>
