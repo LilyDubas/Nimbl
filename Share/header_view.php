@@ -45,10 +45,17 @@ else {
   </ul>
   <ul class="navbar-nav ml-auto nav-flex-icons">
     <li class="nav-item avatar">
-      <a class="nav-link p-0" data-toggle="modal" data-target="#elegantModalForm" >
+      <?php if (isset($_COOKIE['random_key']) && ! empty($_COOKIE['random_key'])){ ?> 
+        <a class="nav-link p-0" href="profil_view.php">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+          alt="avatar image" height="40">
+        </a>
+      <?php } else { ?>
+      <a class="nav-link p-0" data-toggle="modal" data-target="#elegantModalForm">
         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
         alt="avatar image" height="40">
       </a>
+    <?php } ?>
     </li>
   </ul>
 </div>
