@@ -1,3 +1,5 @@
+<?php require '../Controller/info_session_controller.php';
+require '../Controller/dis-moi_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -59,9 +61,28 @@
 
       </div>
     </section>
-    <div class="container mt-5">
+    <div class="container my-5">
       <!--Section: Content-->
       <section class="dark-grey-text">
+        <details>
+          <summary class="p-4 font-weight-bold text-secondary text-center font-size-">Poser une question</summary>
+          <div class="form-group border-focus p-5">
+            <form class="d-flex flex-column" action="#" method="post">
+              <?php if (! isset($_SESSION['id']) || empty($_SESSION['id'])){ ?>
+                <label for="firstname" class="font-weight-bold">Quel est ton prenom ?</label>
+                <input type="text" name="firstname" placeholder="Kali">
+                <label for="lastname" class="font-weight-bold">Quel est ton nom ?</label>
+                <input type="text" name="lastname" placeholder="Moew">
+              <?php } ?>
+              <label for="question-area" class="font-weight-bold">Pose nous ta question: </label>
+              <textarea name="question" class="form-control" id="question-area" rows="3"></textarea>
+              <label for="idea" class="font-weight-bold">Est ce que tu as une théorie ou une idée de réponse ?</label>
+              <textarea name="idea" class="form-control" id="idea-area" rows="3"></textarea>
+              <button class="btn btn-success btn-rounded" type="submit" name="sendQuestion">Envoyer la question</button>
+            </form>
+          </div>
+        </details>
+        <hr class="my-4">
         <!-- Section heading -->
         <h2 class="text-center font-weight-bold mb-4 pb-2">Vos questions</h2>
         <!-- Section description -->
@@ -115,14 +136,6 @@
 
           </div>
         </div>
-        <hr class="my-5">
-        <details>
-          <summary class="p-4 font-weight-bold text-secondary text-center font-size-">Poser une question</summary>
-          <div class="form-group border-focus p-5">
-            <label for="question-area" class="font-weight-bold">Ta question: </label>
-            <textarea class="form-control" id="question-area" rows="3"></textarea>
-          </div>
-        </details>
       </section>
     </div>
   </div>
