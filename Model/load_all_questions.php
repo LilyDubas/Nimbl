@@ -1,14 +1,12 @@
 <?php
-function load_all_users(){
+function load_all_questions(){
   require_once 'params.php';
   $db = connectDb();
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {
     // declarer la requête sql
-    $statement = $db->prepare('SELECT `user`.`id`, `firstname`, `lastname`, `user_name`, `password`, `mail`, `rank`.`rank_name`, `rewards`.`reward_name`, `level`.`level_name`
-    FROM `user` INNER JOIN `rank` ON `user`.`id_rank` = `rank`.`id`
-    INNER JOIN `rewards` ON `user`.`id_rewards` = `rewards`.`id`
-    INNER JOIN `level` ON `user`.`id_level` = `level`.`id`');
+    $statement = $db->prepare('SELECT `questions`.`id`, `user_firstname`, `user_lastname`, `question`, `idea`, `answer`, `status`
+    FROM `questions` INNER JOIN `user` ON `questions`.`user_id` = `user`.`id`');
     $statementValidity = $statement->execute();
     if ($statementValidity == true){
       return $statement->fetchAll(PDO::FETCH_ASSOC);

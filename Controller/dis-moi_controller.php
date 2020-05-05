@@ -37,7 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sendQuestion'])){
       $lastname = strtolower($lastname);
       require '../Model/new_question.php';
       $additionValidity = addNewQuestion($firstname, $lastname, $question, $idea, $userID);
-      var_dump($additionValidity);
+    }
+    else {
+      // One or more input is false
     }
   }
   else {
