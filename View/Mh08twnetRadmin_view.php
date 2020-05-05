@@ -3,7 +3,8 @@ require '../Controller/load_all_users_controller.php';
 require '../Controller/update_any_user_controller.php';
 require '../Controller/delete_any_user_controller.php';
 require '../Controller/add_new_user_controller.php';
-require '../Controller/load_user_questions_controller.php'; ?>
+require '../Controller/load_user_questions_controller.php';
+require '../Controller/delete_user_question_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -137,8 +138,8 @@ require '../Controller/load_user_questions_controller.php'; ?>
               <th class="text-center">Idée</th>
               <th class="text-center">Réponse</th>
               <th class="text-center">Statut</th>
-              <th class="text-center">Modifier</th>
-              <th class="text-center">Annuler</th>
+              <th class="text-center">Répondre</th>
+              <th class="text-center">Supprimer</th>
             </tr>
           </thead>
           <tbody>
@@ -151,7 +152,7 @@ require '../Controller/load_user_questions_controller.php'; ?>
                   <td class="pt-3-half"><?= $question['answer'] ?? '-' ?></td>
                   <td class="pt-3-half font-weight-bold <?= $statusColor[$question['status']] ?>"><?= $question['status'] ?? 'Unknown' ?></td>
                   <td class="pt-3-half"><a type="button" class="btn btn-info btn-rounded btn-sm my-0"><i class="fas fa-check" aria-hidden="true"></i></a></td>
-                  <td class="pt-3-half"><a type="button" class="btn btn-danger btn-rounded btn-sm my-0"><i class="fas fa-times" aria-hidden="true"></i></a></td>
+                  <td class="pt-3-half"><a href="?deleteQuestion=<?= $question['id'] ?? 0 ?>" type="button" class="btn btn-danger btn-rounded btn-sm my-0"><i class="fas fa-times" aria-hidden="true"></i></a></td>
                 </tr>
               <?php } ?>
             <?php } ?>
