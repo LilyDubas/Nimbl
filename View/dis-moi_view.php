@@ -74,11 +74,11 @@ require '../Controller/dis-moi_controller.php'; ?>
                 <label for="lastname" class="font-weight-bold">Quel est ton nom ?</label>
                 <input type="text" name="lastname" placeholder="Moew">
               <?php } ?>
-              <label for="question-area" class="font-weight-bold">Pose nous ta question: </label>
+              <label for="question-area" class="font-weight-bold">Pose nous ta question :</label>
               <textarea name="question" class="form-control" id="question-area" rows="3"></textarea>
-              <label for="idea" class="font-weight-bold">Est ce que tu as une théorie ou une idée de réponse ?</label>
+              <label for="idea-area" class="font-weight-bold">Est ce que tu as une théorie ou une idée de réponse ?</label>
               <textarea name="idea" class="form-control" id="idea-area" rows="3"></textarea>
-              <button class="btn btn-success btn-rounded" type="submit" name="sendQuestion">Envoyer la question</button>
+              <button class="btn btn-success btn-rounded font-weight-bold" type="submit" name="sendQuestion">Envoyer la question</button>
             </form>
           </div>
         </details>
