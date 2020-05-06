@@ -146,13 +146,25 @@ require '../Controller/delete_user_question_controller.php'; ?>
             <?php if ($questionsAvailable == true){
               foreach ($questionList as $question) { ?>
                 <tr>
-                  <td class="pt-3-half"><?= ucfirst($question['user_firstname']) ?? 'John' ?> <?= ucfirst($question['user_lastname']) ?? 'Doe' ?></td>
-                  <td class="pt-3-half font-weight-bold"><?= $question['question'] ?? '-' ?></td>
-                  <td class="pt-3-half"><?= $question['idea'] ?? '-' ?></td>
+                  <td id="name_<?= $question['id'] ?>" class="pt-3-half"><?= ucfirst($question['user_firstname']) ?? 'John' ?> <?= ucfirst($question['user_lastname']) ?? 'Doe' ?></td>
+                  <td id="question_<?= $question['id'] ?>" class="pt-3-half font-weight-bold"><?= $question['question'] ?? '-' ?></td>
+                  <td id="idea_<?= $question['id'] ?>" class="pt-3-half"><?= $question['idea'] ?? '-' ?></td>
                   <td class="pt-3-half"><?= $question['answer'] ?? '-' ?></td>
                   <td class="pt-3-half font-weight-bold <?= $statusColor[$question['status']] ?>"><?= $question['status'] ?? 'Unknown' ?></td>
-                  <td class="pt-3-half"><a type="button" class="btn btn-info btn-rounded btn-sm my-0"><i class="fas fa-check" aria-hidden="true"></i></a></td>
+                  <td class="pt-3-half"><a id="<?= $question['id'] ?>" type="button" class="updateQuestion btn btn-info btn-rounded btn-sm my-0"><i class="fas fa-check" aria-hidden="true"></i></a></td>
                   <td class="pt-3-half"><a href="?deleteQuestion=<?= $question['id'] ?? 0 ?>" type="button" class="btn btn-danger btn-rounded btn-sm my-0"><i class="fas fa-times" aria-hidden="true"></i></a></td>
+                </tr>
+                <tr id="answerQuestion_<?= $question['id'] ?>" class="hiddenTR">
+                  <td class="pt-2 text-center" colspan="5">
+                    <h5 id="questionDisplay_<?= $question['id'] ?>" class="text-center mt-0 mb-1"></h5>
+                    <p id="ideaDisplay_<?= $question['id'] ?>" class="text-center mt-0 mb-2"></p>
+                    <form id="answerForm_<?= $question['id'] ?>" class="d-flex" action="#" method="post">
+                      <label class="my-auto" for="answer">Votre réponse :</label>
+                      <textarea class="w-100" name="answer" rows="3"></textarea>
+                    </form>
+                  </td>
+                  <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Confirmer</p><button type="submit" form="answerForm_<?= $question['id'] ?>" class="btn btn-success btn-rounded my-2"><i class="fas fa-check" aria-hidden="true"></i></button></td>
+                  <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Annuler</p><a id="close_<?= $question['id'] ?>" type="button" class="closeHiddenTr btn btn-warning btn-rounded my-2"><i class="fas fa-times" aria-hidden="true"></i></a></td>
                 </tr>
               <?php } ?>
             <?php } ?>

@@ -5,8 +5,8 @@ function load_all_questions(){
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {
     // declarer la requête sql
-    $statement = $db->prepare('SELECT `questions`.`id`, `user_firstname`, `user_lastname`, `question`, `idea`, `answer`, `status`
-    FROM `questions` INNER JOIN `user` ON `questions`.`user_id` = `user`.`id`');
+    $statement = $db->prepare('SELECT `id`, `user_firstname`, `user_lastname`, `question`, `idea`, `answer`, `status`
+    FROM `questions`');
     $statementValidity = $statement->execute();
     if ($statementValidity == true){
       return $statement->fetchAll(PDO::FETCH_ASSOC);
