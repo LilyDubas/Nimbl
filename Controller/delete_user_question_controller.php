@@ -11,7 +11,7 @@ if (isset($_GET['deleteQuestion']) && ! empty($_GET['deleteQuestion'])){
           require '../Model/delete_question_admin.php';
           $deleteValidity = delete_question($questionID);
           if ($deleteValidity == true){
-            // If deletion went well, reload all users info
+            // If deletion went well, reload all questions
             $questionList = load_all_questions();
             if ($questionList != false){
               // All questions found

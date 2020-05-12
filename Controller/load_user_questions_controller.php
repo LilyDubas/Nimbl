@@ -1,6 +1,6 @@
 <?php
 $questionsAvailable = false; $questionList = [];
-$statusColor = ['pending'=>'text-info','cancelled'=>'text-danger','completed'=>'text-success'];
+$statusColor = ['pending'=>'text-info','cancelled'=>'text-danger','answered'=>'text-success'];
 if (isset($_SESSION['id']) && isset($_SESSION['rank_name'])){
   if ($_SESSION['rank_name'] == 'admin'){
     $userId = (int) trim($_SESSION['id']);

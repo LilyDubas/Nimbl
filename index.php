@@ -306,7 +306,6 @@
   <script src="assets/js/libraries/popper.min.js"></script>
   <script src="assets/js/libraries/bootstrap.min.js"></script>
   <script src="assets/js/libraries/mdb.min.js"></script>
-  <script src="assets/js/libraries/script.jsassets/"></script>
 
 </body>
 <!-- Footer -->

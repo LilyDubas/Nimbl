@@ -4,7 +4,8 @@ require '../Controller/update_any_user_controller.php';
 require '../Controller/delete_any_user_controller.php';
 require '../Controller/add_new_user_controller.php';
 require '../Controller/load_user_questions_controller.php';
-require '../Controller/delete_user_question_controller.php'; ?>
+require '../Controller/delete_user_question_controller.php';
+require '../Controller/update_user_question_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -159,11 +160,12 @@ require '../Controller/delete_user_question_controller.php'; ?>
                     <h5 id="questionDisplay_<?= $question['id'] ?>" class="text-center mt-0 mb-1"></h5>
                     <p id="ideaDisplay_<?= $question['id'] ?>" class="text-center mt-0 mb-2"></p>
                     <form id="answerForm_<?= $question['id'] ?>" class="d-flex" action="#" method="post">
+                      <input type="hidden" name="questionID" value="<?= $question['id'] ?>">
                       <label class="my-auto" for="answer">Votre réponse :</label>
                       <textarea class="w-100" name="answer" rows="3"></textarea>
                     </form>
                   </td>
-                  <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Confirmer</p><button type="submit" form="answerForm_<?= $question['id'] ?>" class="btn btn-success btn-rounded my-2"><i class="fas fa-check" aria-hidden="true"></i></button></td>
+                  <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Confirmer</p><button name="updateQuestion" type="submit" form="answerForm_<?= $question['id'] ?>" class="btn btn-success btn-rounded my-2"><i class="fas fa-check" aria-hidden="true"></i></button></td>
                   <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Annuler</p><a id="close_<?= $question['id'] ?>" type="button" class="closeHiddenTr btn btn-warning btn-rounded my-2"><i class="fas fa-times" aria-hidden="true"></i></a></td>
                 </tr>
               <?php } ?>
