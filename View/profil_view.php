@@ -1,4 +1,5 @@
-<?php require '../Controller/info_session_controller.php'; ?>
+<?php require '../Controller/info_session_controller.php';
+require '../Controller/log_out_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -87,8 +88,24 @@
       </div>
     </div>
   </div>
-  <!-- /// Temporary button to delete and update user /// -->
-
+  <!-- /// Temporary button to log off /// -->
+  <div class="card card-cascade wider my-4 w-50 mx-auto">
+    <div class="card-body card-body-cascade text-center">
+      <div class="btn-group btn-group-lg w-100" role="group">
+        <a type="button" href="?logOff=" class="btn btn-block btn-indigo">Se déconnecter</a>
+      </div>
+    </div>
+  </div>
+  <?php if (isset($_SESSION['rank_name']) && $_SESSION['rank_name'] == 'admin'){ ?>
+    <!-- /// If user is an admin, display the button to go to the admin panel ///  -->
+    <div class="card card-cascade wider my-4 w-50 mx-auto">
+      <div class="card-body card-body-cascade text-center">
+        <div class="btn-group btn-group-lg w-100" role="group">
+          <a type="button" href="Mh08twnetRadmin_view.php" class="btn btn-block btn-primary">Admin Panel</a>
+        </div>
+      </div>
+    </div>
+  <?php } ?>
   <?php include 'update_info_modal.php';
   // Footer
   include '../Share/footer.php';
