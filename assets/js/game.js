@@ -64,7 +64,9 @@ choices.forEach(choice => {
 
   });
 });
+// Get the name of the current file from the url
 var current_file = (window.location.pathname.split('/')).pop();
 if (current_file == 'quiz_game_view.php'){
+  // If the page is of a quiz, start the game with the associated questions
   startGame(questions)
 }

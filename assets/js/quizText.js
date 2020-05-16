@@ -1,3 +1,4 @@
+// Declare the text associated with the quiz theme
 const visionText = {
   mainTitle:'La vision',
   description:'Teste tes connaissances sur l\'oeil et la vision, et remporte le badge "oeil de Lynx!"',
@@ -16,7 +17,7 @@ const description = document.getElementById('description');
 const secondaryTitle = document.getElementById('secondaryTitle');
 
 
-// Function to display text on load
+// Display related text on page load
 var quizText = eval(quizTheme + 'Text');
 mainTitle.innerText = quizText.mainTitle;
 description.innerText = quizText.description;

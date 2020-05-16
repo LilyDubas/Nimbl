@@ -6,5 +6,5 @@ deleteUserButton.addEventListener('click', function(){
     expiryDate.setTime(expiryDate.getTime() + (5 * 60 * 1000));
     document.cookie = 'deleteUser=true; expires=' + expiryDate.toUTCString() + '; path=/';
     window.location.href = '/';
-  };
+  }
 });

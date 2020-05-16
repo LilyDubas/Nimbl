@@ -70,5 +70,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmNewUser'])){
   else {
     // Some important info are important
   }
-}
-?>
+} ?>
