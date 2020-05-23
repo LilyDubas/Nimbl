@@ -4,10 +4,10 @@ if (isset($_COOKIE['random_key']) && ! empty($_COOKIE['random_key'])){
   $random_key = trim($_COOKIE['random_key']);
   // sanitize and validate the random number indentifying the user
   $random_key = filter_var($random_key, FILTER_SANITIZE_NUMBER_INT);
+  // If the key is valid
   if (filter_var($random_key, FILTER_VALIDATE_INT)){
-    // If the key is valid
+    // If the session is empty or non existant
     if (empty($_COOKIE['PHPSESSID']) || ! isset($_SESSION['mail'])){
-      // If the session is empty or non existant
       require '../Model/user_info_to_session.php';
       // Get all user's infos in a variable
       $allUserInfo = get_all_user_infos($random_key);
@@ -28,10 +28,13 @@ if (isset($_COOKIE['random_key']) && ! empty($_COOKIE['random_key'])){
         // ERROR : All user's infos not found
       }
     } else {
-      // User's info already are in the $_SESSION so just start the session 
+      // User's info already are in the $_SESSION so just start the session
       session_start();
     }
   } else {
     // ERROR : Random key is not recognized
   }
+}
+else {
+  // ERROR : User is not connected
 } ?>
