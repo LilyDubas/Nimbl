@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php require '../Controller/info_session_controller.php';
+require '../Controller/log_out_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -29,9 +30,9 @@
     <div class="card-body card-body-cascade text-center">
 
       <!-- Title -->
-      <h4 class="card-title"><strong><?= $_SESSION['firstname'] ?? 'Léo' ?> <?= $_SESSION['lastname'] ?? 'Fox' ?></strong></h4>
+      <h4 class="card-title"><strong><?= ucfirst($_SESSION['firstname']) ?? 'Léo' ?> <?= ucfirst($_SESSION['lastname']) ?? 'Fox' ?></strong></h4>
       <!-- Subtitle -->
-      <h5 class="blue-text pb-2"><strong>Astronaute en herbe</strong></h5>
+      <h5 class="blue-text pb-2"><strong><?= ucfirst($_SESSION['level_name']) ?? 'Astronaute en herbe' ?></strong></h5>
       <!-- Text -->
       <p class="card-text"></p>
 
@@ -78,10 +79,38 @@
 
   </div>
 
-
-  <?php require '../Share/js_links.html' ?>
+  <!-- /// Temporary button to delete and update user /// -->
+  <div class="card card-cascade wider my-4 w-50 mx-auto">
+    <div class="card-body card-body-cascade text-center">
+      <div class="btn-group btn-group-lg w-100" role="group">
+        <button id="delete-user" type="button" class="btn btn-block btn-info">Supprimer votre compte</button>
+        <button id="update-button" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#update-modal">Changer vos informations</button>
+      </div>
+    </div>
+  </div>
+  <!-- /// Temporary button to log off /// -->
+  <div class="card card-cascade wider my-4 w-50 mx-auto">
+    <div class="card-body card-body-cascade text-center">
+      <div class="btn-group btn-group-lg w-100" role="group">
+        <a type="button" href="?logOff=" class="btn btn-block btn-indigo">Se déconnecter</a>
+      </div>
+    </div>
+  </div>
+  <?php if (isset($_SESSION['rank_name']) && $_SESSION['rank_name'] == 'admin'){ ?>
+    <!-- /// If user is an admin, display the button to go to the admin panel ///  -->
+    <div class="card card-cascade wider my-4 w-50 mx-auto">
+      <div class="card-body card-body-cascade text-center">
+        <div class="btn-group btn-group-lg w-100" role="group">
+          <a type="button" href="Mh08twnetRadmin_view.php" class="btn btn-block btn-primary">Admin Panel</a>
+        </div>
+      </div>
+    </div>
+  <?php } ?>
+  <?php include 'update_info_modal.php';
+  // Footer
+  include '../Share/footer.php';
+  require '../Share/js_links.html'; ?>
+  <script src="../assets/js/profil_view.js"></script>
 </body>
-<!-- Footer -->
-<?php include '../Share/footer.php' ?>
 
 </html>

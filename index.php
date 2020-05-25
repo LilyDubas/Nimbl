@@ -1,3 +1,4 @@
+<?php require 'Controller/delete_user_controller.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -305,7 +306,6 @@
   <script src="assets/js/libraries/popper.min.js"></script>
   <script src="assets/js/libraries/bootstrap.min.js"></script>
   <script src="assets/js/libraries/mdb.min.js"></script>
-  <script src="assets/js/libraries/script.jsassets/"></script>
 
 </body>
 <!-- Footer -->

@@ -10,24 +10,21 @@ var scoreNum = 0;
 // initialize questionCounter
 var questionCounter = 0;
 var availableQuestions = [];
-var themeQuestions = [];
-var theme = '';
 
 // constants
 const CORRECT_BONUS = 10; // how much is the correct answer worth
 const MAX_QUESTIONS = 3; // how many questions can a quiz have
-function startGame(theme) {
+function startGame(questions) {
   questionCounter = 0; // make sure the game starts at 0
   scoreNum = 0;
-  themeQuestions = eval(theme + 'Questions');
-  availableQuestions = [...themeQuestions]; // spread each question of questions into an array (" ... " is a spread operator)
+  availableQuestions = [...questions]; // spread each question of questions into an array (" ... " is a spread operator)
   getNewQuestion();
 }
 
 function getNewQuestion() {
   if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS){  // if there's no more available questions
     // go to the end page
-    return window.location.assign('../View/endgame_view.php?score=' + scoreNum + '&theme=' + theme);
+    return window.location.assign('../View/endgame_view.php?score=' + scoreNum + '&theme=' + quizTheme);
   }
   questionCounter++; // increment questionCounter
   scoreText.innerText = scoreNum;
@@ -39,7 +36,7 @@ function getNewQuestion() {
 
   choices.forEach(choice => {
     var number = choice.dataset.number;
-    choice.innerText = currentQuestion['choice' + number];
+    choice.innerText = currentQuestion['choice_' + number];
   });
   availableQuestions.splice(questionIndex, 1);
   acceptingAnswers = true;
@@ -54,7 +51,7 @@ choices.forEach(choice => {
     acceptingAnswers = false;
     var selectedChoice = e.target;
     var selectedAnswer = selectedChoice.dataset.number;
-    var classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';  // apply 'correct' or 'incorrect class wether if answer is correct or not
+    var classToApply = selectedAnswer == currentQuestion.right_answer ? 'correct' : 'incorrect';  // apply 'correct' or 'incorrect class wether if answer is correct or not
     if (classToApply === 'correct'){
       incrementScore(CORRECT_BONUS);
     }
@@ -67,14 +64,9 @@ choices.forEach(choice => {
 
   });
 });
-var url = (window.location.href).split('?');
-var variables = url[1].toString().split('&');
-if (! window.location.toString().includes('endgame')){
-  if (variables.length == 1){
-    variables = variables[0].toString().split('=');
-    if (variables[0] == 'theme'){
-      theme = variables[1];
-    }
-  }
-  startGame(theme);
-};
+// Get the name of the current file from the url
+var current_file = (window.location.pathname.split('/')).pop();
+if (current_file == 'quiz_game_view.php'){
+  // If the page is of a quiz, start the game with the associated questions
+  startGame(questions)
+}

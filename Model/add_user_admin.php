@@ -1,6 +1,6 @@
 <?php
 // Add new user info to the database
-function add_new_user($email, $password, $lastname, $firstname,$random_key){
+function addUser($firstname, $lastname, $mail, $password, $username, $randomKey, $rank){
   require_once 'params.php';
   // Connect to the database
   $db = connectDb();
@@ -9,13 +9,16 @@ function add_new_user($email, $password, $lastname, $firstname,$random_key){
   $password = password_hash($password, PASSWORD_BCRYPT);
   try {
     // Prepare the statement with parameters
-    $statement = $db->prepare('INSERT INTO `user`(`mail`, `password`, `lastname`, `firstname`, `random_key`) VALUES (:mail, :password, :lastname, :firstname, :random_key)');
+    $statement = $db->prepare('INSERT INTO `user` (`firstname`, `lastname`, `user_name`, `password`, `mail`, `random_key`, `id_rank`)
+    VALUES (:firstname, :lastname, :user_name, :password, :mail, :random_key, :id_rank)');
     // Bind all parameters to values with the value's type associated
-    $statement->bindParam(':mail', $email, PDO::PARAM_STR);
-    $statement->bindParam(':password', $password, PDO::PARAM_STR);
-    $statement->bindParam(':lastname', $lastname, PDO::PARAM_STR);
     $statement->bindParam(':firstname', $firstname, PDO::PARAM_STR);
-    $statement->bindParam(':random_key', $random_key, PDO::PARAM_INT);
+    $statement->bindParam(':lastname', $lastname, PDO::PARAM_STR);
+    $statement->bindParam(':user_name', $username, PDO::PARAM_STR);
+    $statement->bindParam(':password', $password, PDO::PARAM_STR);
+    $statement->bindParam(':mail', $mail, PDO::PARAM_STR);
+    $statement->bindParam(':random_key', $randomKey, PDO::PARAM_INT);
+    $statement->bindParam(':id_rank', $rank, PDO::PARAM_INT);
     // Execute the statement and get the return value in a variable
     $statementValidity = $statement->execute();
   } catch (PDOException $ex) {

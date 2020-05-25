@@ -1,21 +1,21 @@
 <?php
-// Get user's info from the database, if it exist
-function check_user($email, $password){
+// Load all users' info from the database
+function load_all_users(){
   require_once 'params.php';
   // Connect to the database
   $db = connectDb();
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {
-    // Prepare the statement with a parameter
-    $statement = $db->prepare('SELECT `id`, `mail`, `password`, `lastname`, `firstname`, `random_key` FROM `user` WHERE `mail` = :mail');
-    // Bind the parameter to a value with the value's type associated
-    $statement->bindParam(':mail', $email, PDO::PARAM_STR);
+    // Prepare the SQL statement
+    $statement = $db->prepare('SELECT `user`.`id`, `firstname`, `lastname`, `user_name`, `password`, `mail`, `rank`.`rank_name`, `rewards`.`reward_name`, `level`.`level_name`
+    FROM `user` INNER JOIN `rank` ON `user`.`id_rank` = `rank`.`id`
+    INNER JOIN `rewards` ON `user`.`id_rewards` = `rewards`.`id`
+    INNER JOIN `level` ON `user`.`id_level` = `level`.`id`');
     // Execute the statement and get the return value in a variable
     $statementValidity = $statement->execute();
     // If the return value was true, get all values in an associative array
     if ($statementValidity == true){
-      $user_info = $statement->fetch(PDO::FETCH_ASSOC);
-      return $user_info;
+      return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
     else {
       return false;
