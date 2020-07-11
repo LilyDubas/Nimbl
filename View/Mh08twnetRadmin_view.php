@@ -12,6 +12,8 @@ require '../Controller/update_user_question_controller.php'; ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+
   <title>Admin Panel</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -25,7 +27,7 @@ require '../Controller/update_user_question_controller.php'; ?>
   <h1 class="text-center text-uppercase py-4">Menu administrateur</h1>
   <div class="d-flex text-center nav nav-tabs" id="buttons">
     <a type="button" data-toggle="tab" href="#userList" class="btn btn-unique ml-5">Liste des utilisateurs</a>
-    <a type="button" class="btn btn-purple ml-5">Articles</a>
+    <a type="button" data-toggle="tab" href="#articles" class="btn btn-purple ml-5">Articles</a>
     <a type="button" data-toggle="tab" href="#questionList" class="btn btn-pink ml-5">Questions des utilisateurs</a>
 
   </div>
@@ -125,6 +127,25 @@ require '../Controller/update_user_question_controller.php'; ?>
               <!-- This is our clonable table line -->
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+    <!-- new article -->
+    <div id="articles" class="tab-pane fade">
+      <div id="new_article" class="article">
+        <h3 class="card-header text-center font-weight-bold">Rédiger un nouvel article</h3>
+        <div class="card-body">
+          <div id="editor">This is some sample content.</div>
+<script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
         </div>
       </div>
     </div>

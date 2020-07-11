@@ -71,9 +71,9 @@
             <!-- Title -->
             <div class="d-flex justify-content-between">
               <div class="col-11 text-truncate pl-0 mb-3">
-                <a>Comment fonctionne la digestion?</a>
+                <a href="digestion_view.php">Comment fonctionne la digestion?</a>
               </div>
-              <a><i class="fas fa-angle-double-right"></i></a>
+              <a href="digestion_view.php"><i class="fas fa-angle-double-right"></i></a>
             </div>
           </div>
           <!-- Small news -->
@@ -190,9 +190,9 @@
             <!-- Title -->
             <div class="d-flex justify-content-between">
               <div class="col-11 text-truncate pl-0 mb-3">
-                <a>Les chats retombent-ls toujours sur leurs pattes?</a>
+                <a href="chats_pattes_view.php">Les chats retombent-ils toujours sur leurs pattes?</a>
               </div>
-              <a><i class="fas fa-angle-double-right"></i></a>
+              <a href="chats_pattes_view.php"><i class="fas fa-angle-double-right"></i></a>
             </div>
           </div>
           <!-- Small news -->

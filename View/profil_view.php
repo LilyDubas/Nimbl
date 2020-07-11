@@ -15,6 +15,11 @@ require '../Controller/log_out_controller.php'; ?>
   <!--Navbar -->
   <?php include '../Share/header_view.php' ?>
 
+  <!-- test floating button edit profil -->
+
+  <a class="btn-floating btn-lg aqua-gradient float-right mr-5 mt-3" data-toggle="modal" data-target="#update-modal" ><i class="fas fa-pencil-alt text-white" data-toggle="tooltip"
+  data-placement="left" title="Modifier le profil"></i></a>
+
   <!-- Card Wider -->
   <div class="card card-cascade wider mt-5" id="card-profil">
 
@@ -35,8 +40,6 @@ require '../Controller/log_out_controller.php'; ?>
       <h5 class="blue-text pb-2"><strong><?= ucfirst($_SESSION['level_name']) ?? 'Astronaute en herbe' ?></strong></h5>
       <!-- Text -->
       <p class="card-text"></p>
-
-
     </div>
 
   </div>
@@ -53,7 +56,7 @@ require '../Controller/log_out_controller.php'; ?>
         </div>
         <div class="card-body">
           <div class="row pt-4">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
+            <div class="col-lg-2 col-md-2 col-sm-4 pb-4">
               <div class="avatar white text-center">
                 <img src="../assets/img/enter.svg" class="img-fluid rounded-circle z-depth-1" alt="enter"/>
               </div>
@@ -62,7 +65,7 @@ require '../Controller/log_out_controller.php'; ?>
                 <p class="text-muted text-center m-2"><small>Première connexion</small></p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
+            <div class="col-lg-2 col-md-2 col-sm-4 pb-4">
               <div class="avatar white text-center">
                 <img src="../assets/img/planet.svg" class="img-fluid rounded-circle z-depth-1" alt="planet"/>
               </div>
@@ -79,23 +82,22 @@ require '../Controller/log_out_controller.php'; ?>
 
   </div>
 
+
   <!-- /// Temporary button to delete and update user /// -->
-  <div class="card card-cascade wider my-4 w-50 mx-auto">
+
+  <!-- <div class="card card-cascade wider my-4 w-50 mx-auto">
     <div class="card-body card-body-cascade text-center">
       <div class="btn-group btn-group-lg w-100" role="group">
         <button id="delete-user" type="button" class="btn btn-block btn-info">Supprimer votre compte</button>
         <button id="update-button" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#update-modal">Changer vos informations</button>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- /// Temporary button to log off /// -->
-  <div class="card card-cascade wider my-4 w-50 mx-auto">
-    <div class="card-body card-body-cascade text-center">
-      <div class="btn-group btn-group-lg w-100" role="group">
-        <a type="button" href="?logOff=" class="btn btn-block btn-indigo">Se déconnecter</a>
-      </div>
-    </div>
-  </div>
+  <a class="btn-floating btn-lg btn-danger float-right mr-5" href="?logOff=">
+    <i class="fas fa-door-open text-white" data-toggle="tooltip"
+    data-placement="left" title="Se déconnecter"></i>
+  </a>
   <?php if (isset($_SESSION['rank_name']) && $_SESSION['rank_name'] == 'admin'){ ?>
     <!-- /// If user is an admin, display the button to go to the admin panel ///  -->
     <div class="card card-cascade wider my-4 w-50 mx-auto">

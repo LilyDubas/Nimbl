@@ -1,7 +1,7 @@
 <?php
 // Declare constants of the parameters to connect to the database
-define('USER', 'pierremonvoisin');
-define('PASSWD', 'f0O91n5QftTYTCj');
+define('USER', 'LilyD');
+define('PASSWD', 'Iw4nt2break3');
 define('HOST', 'localhost');
 define('DB', 'Nimbl');
 
@@ -13,6 +13,6 @@ function connectDb() {
     return new PDO($dsn, USER, PASSWD);
   } catch (PDOException $ex) {
     // If the connection failed, display the error code ( too risky ? )
-    die('La connexion à la bd a échoué !'.$e->getCode());
+    die('La connexion à la bd a échoué !'.$ex->getCode());
   }
 } ?>
