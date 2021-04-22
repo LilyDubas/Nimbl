@@ -57,7 +57,6 @@
               <button class="btn btn-primary"><i class="fas fa-flask mr-2"></i><a href="View/labo_view.php" class="text-white">Le labo</a></button>
             </div>
           </div>
-          <!-- Card -->
         </div>
         <div class="col-lg-4 col-md-6 mb-md-0 mb-4">
 
@@ -89,7 +88,6 @@
         </div>
       </div>
     </section>
-
 
 
   </div>
@@ -158,7 +156,6 @@
               <a><i class="fas fa-angle-double-right"></i></a>
             </div>
           </div>
-          <!-- Small news -->
           <!-- Small news -->
           <div class="single-news">
             <!-- Title -->
