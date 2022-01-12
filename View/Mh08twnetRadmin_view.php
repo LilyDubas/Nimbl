@@ -5,9 +5,12 @@ require '../Controller/delete_any_user_controller.php';
 require '../Controller/add_new_user_controller.php';
 require '../Controller/load_user_questions_controller.php';
 require '../Controller/delete_user_question_controller.php';
-require '../Controller/update_user_question_controller.php'; ?>
+require '../Controller/update_user_question_controller.php';
+require '../Controller/dis-moi_controller.php';
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +23,7 @@ require '../Controller/update_user_question_controller.php'; ?>
   <?php require '../Share/css_links.html' ?>
   <link rel="stylesheet" href="../assets/css/admin_view.css">
 </head>
+
 <body>
   <!--Navbar -->
   <?php include '../Share/header_view.php' ?>
@@ -37,7 +41,7 @@ require '../Controller/update_user_question_controller.php'; ?>
       <h3 class="card-header text-center font-weight-bold">Liste des utilisateurs</h3>
       <div class="card-body">
         <div id="table" class="table-editable">
-          <?php if ($displayNewUserForm == true){ ?>
+          <?php if ($displayNewUserForm == true) { ?>
             <span class="table-add float-right mb-3 mr-2"><a href="?" class="text-danger"><i class="fas fa-times fa-2x" aria-hidden="true"></i></a></span>
             <form action="#" method="post">
               <table class="table table-bordered table-responsive-md table-striped text-center">
@@ -89,8 +93,8 @@ require '../Controller/update_user_question_controller.php'; ?>
               </tr>
             </thead>
             <tbody>
-              <?php if ($usersAvailable == true){
-                foreach ($userList AS $user){ ?>
+              <?php if ($usersAvailable == true) {
+                foreach ($userList as $user) { ?>
                   <tr id="mainUserInfo_<?= $user['id'] ?? '0' ?>">
                     <td class="pt-3-half"><?= $user['firstname'] ?? 'Kali' ?></td>
                     <td class="pt-3-half"><?= $user['lastname'] ?? 'Meow' ?></td>
@@ -136,16 +140,16 @@ require '../Controller/update_user_question_controller.php'; ?>
         <h3 class="card-header text-center font-weight-bold">Rédiger un nouvel article</h3>
         <div class="card-body">
           <div id="editor">This is some sample content.</div>
-<script>
-        ClassicEditor
-                .create( document.querySelector( '#editor' ) )
-                .then( editor => {
-                        console.log( editor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
-</script>
+          <script>
+            ClassicEditor
+              .create(document.querySelector('#editor'))
+              .then(editor => {
+                console.log(editor);
+              })
+              .catch(error => {
+                console.error(error);
+              });
+          </script>
         </div>
       </div>
     </div>
@@ -165,7 +169,7 @@ require '../Controller/update_user_question_controller.php'; ?>
             </tr>
           </thead>
           <tbody>
-            <?php if ($questionsAvailable == true){
+            <?php if ($questionsAvailable == true) {
               foreach ($questionList as $question) { ?>
                 <tr>
                   <td id="name_<?= $question['id'] ?>" class="pt-3-half"><?= ucfirst($question['user_firstname']) ?? 'John' ?> <?= ucfirst($question['user_lastname']) ?? 'Doe' ?></td>
@@ -186,8 +190,12 @@ require '../Controller/update_user_question_controller.php'; ?>
                       <textarea class="w-100" name="answer" rows="3"></textarea>
                     </form>
                   </td>
-                  <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Confirmer</p><button name="updateQuestion" type="submit" form="answerForm_<?= $question['id'] ?>" class="btn btn-success btn-rounded my-2"><i class="fas fa-check" aria-hidden="true"></i></button></td>
-                  <td class="pt-3"><p class="text-center mt-0 mb-2 font-weight-bold">Annuler</p><a id="close_<?= $question['id'] ?>" type="button" class="closeHiddenTr btn btn-warning btn-rounded my-2"><i class="fas fa-times" aria-hidden="true"></i></a></td>
+                  <td class="pt-3">
+                    <p class="text-center mt-0 mb-2 font-weight-bold">Confirmer</p><button name="updateQuestion" type="submit" form="answerForm_<?= $question['id'] ?>" class="btn btn-success btn-rounded my-2"><i class="fas fa-check" aria-hidden="true"></i></button>
+                  </td>
+                  <td class="pt-3">
+                    <p class="text-center mt-0 mb-2 font-weight-bold">Annuler</p><a id="close_<?= $question['id'] ?>" type="button" class="closeHiddenTr btn btn-warning btn-rounded my-2"><i class="fas fa-times" aria-hidden="true"></i></a>
+                  </td>
                 </tr>
               <?php } ?>
             <?php } ?>
@@ -205,4 +213,5 @@ require '../Controller/update_user_question_controller.php'; ?>
   <?php require '../Share/js_links.html'; ?>
   <script src="../assets/js/admin.js"></script>
 </body>
+
 </html>

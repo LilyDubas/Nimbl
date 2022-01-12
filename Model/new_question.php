@@ -1,13 +1,15 @@
+
 <?php
 // Add a question to the database
-function addNewQuestion($firstname, $lastname, $question, $idea, $userID){
+function addNewQuestion($firstname, $lastname, $question, $idea, $userID)
+{
   require_once 'params.php';
   // Connect to the database
   $db = connectDb();
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   try {
     // Prepare the statement with parameters
-    $statement = $db->prepare('INSERT INTO `questions` (`user_firstname`, `user_lastname`, `question`, `idea`, `user_id`)
+    $statement = $db->prepare('INSERT INTO `questions` (`user_firstname`, `user_lastname`, `question`, `idea`, `userID`)
     VALUES (:user_firstname, :user_lastname, :question, :idea, :user_id)');
     // Bind all parameters to values with the value's type associated
     $statement->bindParam(':user_firstname', $firstname, PDO::PARAM_STR);
